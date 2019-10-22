@@ -16,7 +16,7 @@
 'use strict';
 
 const https = require('https');
-const HttpServer = require('fifit-server-http');
+const {Server: HttpServer} = require('fifit-server-http');
 
 /**
  */
