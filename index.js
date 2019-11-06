@@ -16,7 +16,7 @@
 'use strict';
 
 const {Request, Response} = require('fifit-server-http');
-const Server = require('./server');
+const Server = require('./lib/server');
 
 /**
  * @+
