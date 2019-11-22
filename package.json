@@ -8,7 +8,7 @@
     "url": "git+https://github.com/yudhatamaaditiyara/Fifit-Server-Https.git"
   },
   "dependencies": {
-    "fifit-server-http": "0.0.3"
+    "fifit-server-http": "0.0.5"
   },
   "devDependencies": {
     "coveralls": "3.0.7",
