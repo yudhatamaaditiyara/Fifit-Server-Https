@@ -1,13 +1,13 @@
 {
-	"ui": "bdd",
-	"bail": true,
-	"check-leaks": true,
-	"slow": 75,
-	"timeout": 2000,
-	"package": "package.json",
-	"reporter": "spec",
-	"extension": ["js"],
-	"recursive" : [
-		"test/bdd"
-	]
+  "ui": "bdd",
+  "bail": true,
+  "check-leaks": true,
+  "slow": 75,
+  "timeout": 2000,
+  "package": "package.json",
+  "reporter": "spec",
+  "extension": ["js"],
+  "recursive" : [
+    "test/bdd"
+  ]
 }
