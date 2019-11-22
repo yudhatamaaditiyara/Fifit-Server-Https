@@ -8,4 +8,4 @@ cache:
 script:
   - sudo env "PATH=$PATH" npm test
 after_success:
-  - sudo env "PATH=$PATH" npm run coveralls
+  - sudo env "PATH=$PATH" npm run coverage
