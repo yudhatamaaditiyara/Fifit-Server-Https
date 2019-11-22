@@ -18,24 +18,16 @@ const {Request, Response} = require('fifit-server-http');
 const Server = require('../../lib/server');
 const http = require('../../');
 
-/**
- */
 describe('index', () => {
-	/**
-	 */
-	it('must be exports http.Server', async() => {
-		assert.ok(http.Server === Server);
-	});
+  it('must be exports http.Server', () => {
+    assert.ok(http.Server === Server);
+  });
 
-	/**
-	 */
-	it('must be exports http.Request', async() => {
-		assert.ok(http.Request === Request);
-	});
-	
-	/**
-	 */
-	it('must be exports http.Response', async() => {
-		assert.ok(http.Response === Response);
-	});
+  it('must be exports http.Request', () => {
+    assert.ok(http.Request === Request);
+  });
+
+  it('must be exports http.Response', () => {
+    assert.ok(http.Response === Response);
+  });
 });

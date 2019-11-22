@@ -19,7 +19,7 @@
     "node": ">= 12.0.0"
   },
   "scripts": {
-    "test": "nyc mocha --config test/bdd.json",
+    "test": "nyc mocha --config test/config.json",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "files": [

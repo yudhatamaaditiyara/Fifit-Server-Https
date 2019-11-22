@@ -13,14 +13,4 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-'use strict';
-
-const config = require('./config');
-const {Server} = require('../../');
-
-/**
- * @+
- */
-module.exports = {};
-module.exports.createServer = () => new Server(config.server);
-module.exports.createServerDefaultPort = () => new Server(config.serverDefaultPort);
+process.env.NODE_ENV = 'testing';

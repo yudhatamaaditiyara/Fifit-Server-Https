@@ -15,26 +15,17 @@
  */
 'use strict';
 
-const fs = require('fs');
+const config = require('./config');
+const {Server} = require('../../');
 
 /**
  * @+
  */
 module.exports = {
-  server:{
-    host: 'localhost',
-    port: 9000,
-    options: {
-      key: fs.readFileSync(__dirname + '/cert/key.pem'),
-      cert: fs.readFileSync(__dirname + '/cert/cert.pem')
-    }
+  createServer(){
+    return new Server(config.server);
   },
-  serverDefaultPort:{
-    host: 'localhost',
-    port: 443,
-    options: {
-      key: fs.readFileSync(__dirname + '/cert/key.pem'),
-      cert: fs.readFileSync(__dirname + '/cert/cert.pem')
-    }
+  createServerDefaultPort(){
+    return new Server(config.serverDefaultPort);
   }
 };
