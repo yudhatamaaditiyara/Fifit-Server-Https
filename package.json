@@ -8,12 +8,12 @@
     "url": "git+https://github.com/yudhatamaaditiyara/Fifit-Server-Https.git"
   },
   "dependencies": {
-    "fifit-server-http": "0.0.8"
+    "fifit-server-http": "^0.0.8"
   },
   "devDependencies": {
-    "coveralls": "3.0.7",
-    "mocha": "6.2.2",
-    "nyc": "14.1.1"
+    "coveralls": "^3.0.7",
+    "mocha": "^6.2.2",
+    "nyc": "^14.1.1"
   },
   "engines": {
     "node": ">= 12.0.0"
