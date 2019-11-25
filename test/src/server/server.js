@@ -55,21 +55,12 @@ describe('Server', () => {
       response.end(request.href);
     });
     server.start().then(() => {
-      let options = {
-        rejectUnauthorized: false,
+      helper.createHttpSecureRequest({
         host: server.options.host,
-        port: server.options.port,
-        path: '/'
-      };
-      https.get(options, (response) => {
-        let buffer = '';
-        response.setEncoding('utf-8');
-        response.on('data', string => buffer += string);
-        response.on('end', async() => {
-          assert.strictEqual(buffer, 'https://' + options.host + ':' + options.port + '/');
-          await server.stop();
-          done();
-        });
+        port: server.options.port
+      }).then(({buffer}) => {
+        assert.strictEqual(buffer, 'https://' + server.options.host + ':' + server.options.port + '/');
+        server.stop().then(done);
       });
     });
   });
@@ -80,21 +71,11 @@ describe('Server', () => {
       response.end(request.href);
     });
     server.start().then(() => {
-      let options = {
-        rejectUnauthorized: false,
-        host: server.options.host,
-        port: server.options.port,
-        path: '/'
-      };
-      https.get(options, (response) => {
-        let buffer = '';
-        response.setEncoding('utf-8');
-        response.on('data', string => buffer += string);
-        response.on('end', async() => {
-          assert.strictEqual(buffer, 'https://' + options.host + '/');
-          await server.stop();
-          done();
-        });
+      helper.createHttpSecureRequest({
+        host: server.options.host
+      }).then(({buffer}) => {
+        assert.strictEqual(buffer, 'https://' + server.options.host + '/');
+        server.stop().then(done);
       });
     });
   });
