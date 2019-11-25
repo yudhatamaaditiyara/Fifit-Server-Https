@@ -19,15 +19,15 @@ const Server = require('../../lib/server');
 const http = require('../../');
 
 describe('index', () => {
-  it('must be exported http.Server', () => {
+  it('must be exported Server', () => {
     assert.ok(http.Server === Server);
   });
 
-  it('must be exported http.Request', () => {
+  it('must be exported Request', () => {
     assert.ok(http.Request === Request);
   });
 
-  it('must be exported http.Response', () => {
+  it('must be exported Response', () => {
     assert.ok(http.Response === Response);
   });
 });
