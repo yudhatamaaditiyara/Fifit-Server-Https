@@ -15,6 +15,8 @@
  */
 'use strict';
 
+const http = require('http');
+const https = require('https');
 const config = require('./config');
 const {Server} = require('../../');
 
@@ -27,5 +29,35 @@ module.exports = {
   },
   createServerDefaultPort(){
     return new Server(config.serverDefaultPort);
+  },
+  createHttpRequest(options){
+    return new Promise((resolve) => {
+      let buffer = '';
+      let headers = {};
+      let request = http.get(Object.assign({path: '/'}, options), (response) => {
+        headers = response.headers;
+        response.setEncoding('utf-8');
+        response.on('data', string => buffer += string);
+        response.on('end', () => {
+          resolve({buffer, headers, request, response});
+          request.destroy();
+        });
+      });
+    });
+  },
+  createHttpSecureRequest(options){
+    return new Promise((resolve) => {
+      let buffer = '';
+      let headers = {};
+      let request = https.get(Object.assign({rejectUnauthorized: false, path: '/'}, options), (response) => {
+        headers = response.headers;
+        response.setEncoding('utf-8');
+        response.on('data', string => buffer += string);
+        response.on('end', () => {
+          resolve({buffer, headers, request, response});
+          request.destroy();
+        });
+      });
+    });
   }
 };
