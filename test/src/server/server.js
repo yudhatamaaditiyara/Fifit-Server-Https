@@ -19,24 +19,24 @@ const config = require('../../helper/config');
 const helper = require('../../helper');
 
 describe('Server', () => {
-  it('must be Server#options.host === config.server.host', () => {
+  it('must be Server#config.host === config.server.host', () => {
     let server = helper.createServer();
-    assert.strictEqual(server.options.host, config.server.host);
+    assert.strictEqual(server.config.host, config.server.host);
   });
 
-  it('must be Server#options.port === config.server.port', () => {
+  it('must be Server#config.port === config.server.port', () => {
     let server = helper.createServer();
-    assert.strictEqual(server.options.port, config.server.port);
+    assert.strictEqual(server.config.port, config.server.port);
   });
 
-  it('must be Server#options.options.key === config.server.options.key', () => {
+  it('must be Server#config.options.key === config.server.options.key', () => {
     let server = helper.createServer();
-    assert.strictEqual(server.options.options.key, config.server.options.key);
+    assert.strictEqual(server.config.options.key, config.server.options.key);
   });
 
-  it('must be Server#options.options.cert === config.server.options.cert', () => {
+  it('must be Server#config.options.cert === config.server.options.cert', () => {
     let server = helper.createServer();
-    assert.strictEqual(server.options.options.cert, config.server.options.cert);
+    assert.strictEqual(server.config.options.cert, config.server.options.cert);
   });
 
   it('must be Server#resource instanceof https.Server', () => {
@@ -56,10 +56,10 @@ describe('Server', () => {
     });
     server.start().then(() => {
       helper.createHttpSecureRequest({
-        host: server.options.host,
-        port: server.options.port
+        host: server.config.host,
+        port: server.config.port
       }).then(({buffer}) => {
-        assert.strictEqual(buffer, 'https://' + server.options.host + ':' + server.options.port + '/');
+        assert.strictEqual(buffer, 'https://' + server.config.host + ':' + server.config.port + '/');
         server.stop().then(done);
       });
     });
@@ -72,9 +72,9 @@ describe('Server', () => {
     });
     server.start().then(() => {
       helper.createHttpSecureRequest({
-        host: server.options.host
+        host: server.config.host
       }).then(({buffer}) => {
-        assert.strictEqual(buffer, 'https://' + server.options.host + '/');
+        assert.strictEqual(buffer, 'https://' + server.config.host + '/');
         server.stop().then(done);
       });
     });
